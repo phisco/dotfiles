@@ -213,6 +213,7 @@ let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeOnWrite = 1
 let g:flake8_builtins="_,apply"
 let g:flake8_max_line_length=120
+let g:pep8_ignore="E501,W601"
 
 " let g:PyFlakeDefaultComplexity=10
 autocmd filetype py set foldmethod=indent
@@ -404,3 +405,4 @@ nnoremap <Leader>f :Unite -start-insert -auto-preview file<CR>
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 "Map start key separately from next key
+"
