@@ -32,26 +32,21 @@ def main(curdir=os.getcwd(), prefix="my_"):
     try:
         my_dotfiles = get_paths(curdir, home, prefix)
     except:
-        print("no files with specified prefix {} in {} \n", prefix, curdir)
+        print("\nno files with specified prefix '{}' in '{}' \n".format(prefix, curdir))
         raise
     for dotfile in my_dotfiles.keys():
         print("checking " + dotfile)
         cwdpa, homepa = my_dotfiles[dotfile]
         check_and_solve_existence(homepa)
-        # if pat.exists(homepa) or pat.lexists(homepa):
-        #     print("backup " + homepa)
-        #     try:
-        #         os.rename(homepa, homepa + "_backup")
-        #     except OSError:
-        #         os.remove(homepa+"_backup")
-        #         os.rename(homepa, homepa + "_backup")
         os.symlink(cwdpa, homepa)
         print("")
 
 if __name__ == "__main__":
-    print("auto_ln.py [dotdir=if not specified cwd] [prefix=if not specified '_my'] \n")
-    dotdir = os.getcwd() if len(sys.argv) < 2 else sys.argv[1]
-    prefix = "my_" if len(sys.argv) < 3 else sys.argv[2]
+    dotdir = str(input("Insert directory where dotfiles are, leave blank for cwd:\n"))
+    prefix = str(input("""
+Insert the prefix you use to save your dotfiles, leave blank for 'my_':
+(example: .vimrc stored as my_virmc so prefix is 'my_')
+"""))
     try:
         main(dotdir, prefix)
     except:
