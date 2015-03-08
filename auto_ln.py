@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys
 import os.path as pat
 
 
@@ -39,7 +38,7 @@ def main(curdir=os.getcwd(), prefix="my_"):
         cwdpa, homepa = my_dotfiles[dotfile]
         check_and_solve_existence(homepa)
         os.symlink(cwdpa, homepa)
-        print("")
+        print("symlinked {} as {}\n".format(cwdpa, homepa))
 
 if __name__ == "__main__":
     dotdir = str(input("Insert directory where dotfiles are, leave blank for cwd:\n"))
@@ -47,6 +46,8 @@ if __name__ == "__main__":
 Insert the prefix you use to save your dotfiles, leave blank for 'my_':
 (example: .vimrc stored as my_virmc so prefix is 'my_')
 """))
+    dotdir = dotdir if dotdir != '' else os.getcwd()
+    prefix = prefix if prefix != '' else 'my_'
     try:
         main(dotdir, prefix)
     except:
