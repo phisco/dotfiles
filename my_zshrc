@@ -21,6 +21,7 @@ alias brewupup="brew update && brew upgrade"
 alias sshrasp="ssh pi@93.50.133.150"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias takeover="tmux detach -a"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -71,7 +72,9 @@ alias supup='sudo apt-get update && sudo apt-get upgrade'
  #Customize to your needs...
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/adt-bundle-mac-x86_64-20140702/sdk/platform-tools
+export PATH=$PATH:/usr/local/mysql/bin
 ###begin-jump-bash_profile
 #
 # Installation:
