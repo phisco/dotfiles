@@ -1,27 +1,26 @@
 " Setting up Vundle - the vim plugin bundler
-    " let iCanHazVundle=1
-    "  let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-    "  if !filereadable(vundle_readme)
-    "      echo "Installing Vundle.."
-    "      echo ""
-    "      silent !mkdir -p ~/.vim/bundle
-    "      silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-    "      let iCanHazVundle=0
-    "  endif
-    "  set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " alternatively, pass a path where Vundle should install plugins
+     let iCanHazVundle=1
+     if !isdirectory(expand('$HOME/.vim/bundle'))
+         echo "Installing Vundle.."
+         echo ""
+         silent !mkdir -p ~/.vim/bundle
+         silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+         let iCanHazVundle=0
+     endif
+     "  set the runtime path to include Vundle and initialize
+     set rtp+=~/.vim/bundle/Vundle.vim
+     call vundle#begin()
+     " alternatively, pass a path where Vundle should install plugins
     "call vundle#begin('~/some/path/here')
 
     " let Vundle manage Vundle, required
     Plugin 'gmarik/Vundle.vim'
 
-     " if iCanHazVundle == 0
-         " echo "Installing Bundles, please ignore key map error messages"
-         " echo ""
-         " :BundleInstall
-     " endif
+    if iCanHazVundle == 0
+        echo "Installing Bundles, please ignore key map error messages"
+         echo ""
+         :PluginInstall
+     endif
 " Setting up Vundle - the vim plugin bundler end
 
 set nocompatible              " be iMproved, required
