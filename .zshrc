@@ -49,3 +49,6 @@ pandoc $1 | lynx -stdin
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/phisco/.local/bin/vault vault
+source /home/phisco/.local/bin/aws_zsh_completer.sh
+
+alias "kul"="kubectl"
